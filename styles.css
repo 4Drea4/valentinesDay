@@ -50,8 +50,8 @@ body {
     position: absolute;
     background-color: #eae2b7;
     width: 270px;
-    height: 170px;
-    top:5px;
+    height: 200px;
+    top:-10px;
     left:15px;
     box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
   }
@@ -70,12 +70,12 @@ body {
   
   .text {
     position: absolute;
-    font-family: 'Brush Script MT', cursive;
-    font-size: 28px;
+     font-family: 'Indie Flower';
+    font-size: 26px;
     text-align: center;
     line-height:25px;
     top:19px;
-    left:85px;
+    left:35px;
     color: #003049;
   }
   
@@ -243,7 +243,7 @@ body {
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.3);
     bottom: 20px;
-    left: 40%;
+    left: 50%;
     transform: translateX(-50%); /* Centers it properly */
     animation: scale 3s linear infinite;
     z-index: -1; /* Ensures it's below the envelope */
@@ -251,14 +251,13 @@ body {
 
 
   
-  @keyframes scale {
-    0%, 100% {
-      transform: scaleX(1);
-    }
-    50% {
-      transform: scaleX(0.85);
-    }
+@keyframes scale {
+  0%, 100% {
+      transform: translateX(-50%) scale(1);
   }
+  50% {
+      transform: translateX(-50%) scale(0.85);
+  }}
   
 
   #love-text {
@@ -269,22 +268,13 @@ body {
     word-wrap: break-word;
     text-align: center;
     font-size: 16px;
-    padding: 10px;
-    margin: 0 auto; 
+    padding: 15px;  /* Pushes text down slightly */
+    margin: 10px auto;  /* Centers properly */
     display: flex; 
     justify-content: center; 
     align-items: center; 
     background: transparent;
     border-radius: 8px;
-    left:-7px;
+    left:5px;
 }
-#spotify-player {
-    width: 0px; /* Hides it completely */
-    height: 0px;
-    position: absolute;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -2; /* Ensures it's behind everything */
-    opacity: 0; /* Makes it invisible */
-}
+

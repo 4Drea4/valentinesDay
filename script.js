@@ -1,4 +1,4 @@
-let lastFetchTime = 0; // Track last fetch time
+let lastFetchTime = 0; 
 const fetchCooldown = 300000; // 5 min cooldown
 
 async function fetchAILoveLetter() {
@@ -35,17 +35,21 @@ $(document).ready(function () {
 });
 
 
-    function playRandomSong() {
-        let spotifyTracks = [
-            "https://open.spotify.com/embed/track/2XVZCEVm0jwUpJR7nXdJKS?si=b7823a72d3584cb7",
-            "https://open.spotify.com/embed/track/1QLU4ozvjUcxft4GdUgxin?si=001f6d2580094cf3",
-            "https://open.spotify.com/embed/track/34gCuhDGsG4bRPIf9bb02f?si=7822e054e7ae454b"
-        ];
-    
-        let randomSong = spotifyTracks[Math.floor(Math.random() * spotifyTracks.length)];
-        let player = document.getElementById("spotify-player");
-    
-        // Set the song URL and make sure the player is visible
-        player.src = randomSong;
-        player.style.display = "block"; 
-    }
+function playRandomSong() {
+    let audioElement = document.getElementById("love-audio");
+
+    let musicTracks = [
+        "Ed Sheeran - Thinking Out Loud (Official Music Video).mp3", 
+        "Fridayy - When It Comes To You.mp3",
+        "Monica  - Why I Love You So Much ( Instrumental karaoke ).mp3"
+    ];
+
+    let randomTrack = musicTracks[Math.floor(Math.random() * musicTracks.length)];
+    audioElement.src = randomTrack;
+
+    // Play only after a user gesture (click or hover)
+    document.body.addEventListener('click', function playMusic() {
+        audioElement.play();
+        document.body.removeEventListener('click', playMusic); // Ensure it plays only once
+    });
+}
